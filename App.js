@@ -9,11 +9,9 @@ import { StatusBar } from 'expo-status-bar';
 import { AuthProvider, useAuth } from './src/context/AuthContext';
 import ErrorBoundary from './src/components/ErrorBoundary';
 
-// Auth
 import LoginScreen    from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 
-// Client
 import DashboardScreen from './src/screens/DashboardScreen';
 import BookingsScreen  from './src/screens/BookingsScreen';
 import DahejScreen     from './src/screens/DahejScreen';
@@ -24,7 +22,6 @@ import SettingsScreen  from './src/screens/SettingsScreen';
 import BrowseVendors   from './src/screens/client/BrowseVendors';
 import SendRequest     from './src/screens/client/SendRequest';
 
-// Vendor
 import VendorDashboard    from './src/screens/vendor/VendorDashboard';
 import VendorRequests     from './src/screens/vendor/VendorRequests';
 import VendorServices     from './src/screens/vendor/VendorServices';
@@ -47,7 +44,6 @@ const HEADER_OPTS = {
 const TAB_H  = Platform.OS === 'ios' ? ms(82) : ms(62);
 const TAB_PB = Platform.OS === 'ios' ? ms(22) : ms(6);
 
-// ─── CLIENT TABS ─────────────────────────────────────────────────────────────
 const CLIENT_TABS = [
   { name: 'Dashboard',  component: DashboardScreen, icon: '🏠' },
   { name: 'Vendors',    component: BrowseVendors,   icon: '🏪' },
@@ -65,8 +61,7 @@ const ClientTabs = () => (
         tabBarIcon: ({ focused }) => (
           <View style={{
             alignItems: 'center', justifyContent: 'center',
-            width: ms(38), height: ms(38),
-            borderRadius: ms(19),
+            width: ms(38), height: ms(38), borderRadius: ms(19),
             backgroundColor: focused ? 'rgba(201,168,76,0.18)' : 'transparent',
           }}>
             <Text style={{ fontSize: focused ? ms(20) : ms(17) }}>{tab?.icon}</Text>
@@ -74,11 +69,11 @@ const ClientTabs = () => (
         ),
         tabBarStyle: {
           backgroundColor: COLORS.deep2,
-          borderTopColor: COLORS.border,
-          borderTopWidth: 0.5,
-          height: TAB_H,
-          paddingBottom: TAB_PB,
-          paddingTop: ms(4),
+          borderTopColor:  COLORS.border,
+          borderTopWidth:  0.5,
+          height:          TAB_H,
+          paddingBottom:   TAB_PB,
+          paddingTop:      ms(4),
         },
         tabBarActiveTintColor:   COLORS.goldLight,
         tabBarInactiveTintColor: COLORS.textMuted,
@@ -92,7 +87,6 @@ const ClientTabs = () => (
   </Tab.Navigator>
 );
 
-// ─── VENDOR TABS ─────────────────────────────────────────────────────────────
 const VENDOR_TABS = [
   { name: 'VendorHome',     component: VendorDashboard, icon: '🏠', label: 'Dashboard' },
   { name: 'VendorRequests', component: VendorRequests,  icon: '📩', label: 'Requests'  },
@@ -108,8 +102,7 @@ const VendorTabs = () => (
         tabBarIcon: ({ focused }) => (
           <View style={{
             alignItems: 'center', justifyContent: 'center',
-            width: ms(38), height: ms(38),
-            borderRadius: ms(19),
+            width: ms(38), height: ms(38), borderRadius: ms(19),
             backgroundColor: focused ? 'rgba(201,168,76,0.18)' : 'transparent',
           }}>
             <Text style={{ fontSize: focused ? ms(20) : ms(17) }}>{tab?.icon}</Text>
@@ -117,11 +110,11 @@ const VendorTabs = () => (
         ),
         tabBarStyle: {
           backgroundColor: COLORS.deep2,
-          borderTopColor: COLORS.border,
-          borderTopWidth: 0.5,
-          height: TAB_H,
-          paddingBottom: TAB_PB,
-          paddingTop: ms(4),
+          borderTopColor:  COLORS.border,
+          borderTopWidth:  0.5,
+          height:          TAB_H,
+          paddingBottom:   TAB_PB,
+          paddingTop:      ms(4),
         },
         tabBarActiveTintColor:   COLORS.goldLight,
         tabBarInactiveTintColor: COLORS.textMuted,
@@ -130,17 +123,11 @@ const VendorTabs = () => (
     }}
   >
     {VENDOR_TABS.map(t => (
-      <Tab.Screen
-        key={t.name}
-        name={t.name}
-        component={t.component}
-        options={{ title: t.label }}
-      />
+      <Tab.Screen key={t.name} name={t.name} component={t.component} options={{ title: t.label }} />
     ))}
   </Tab.Navigator>
 );
 
-// ─── ROOT NAVIGATOR ───────────────────────────────────────────────────────────
 const RootNavigator = () => {
   const { user, loading } = useAuth();
 

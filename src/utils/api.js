@@ -5,7 +5,7 @@ import * as SecureStore from 'expo-secure-store';
 // Replace this with your ngrok or Render URL when testing on a real device.
 // Example ngrok:  https://xxxx-xxx.ngrok-free.app/api
 // Example Render: https://weder-backend.onrender.com/api
-const BASE_URL = 'http://192.168.1.6:5000/api';
+const BASE_URL = 'https://say-scarily-vindicate.ngrok-free.dev/api';
 
 const API = axios.create({
   baseURL: BASE_URL,

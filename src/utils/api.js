@@ -82,3 +82,5 @@ export const deleteDahejItem = (id) => API.delete(`/dahej/${id}`);
 // ─── Vendor requests (client side) ───────────────────────────────────────────
 export const sendBookingRequest = (d) => API.post('/requests', d);
 export const getClientRequests  = (p) => API.get('/requests', { params: p });
+
+export default API;
